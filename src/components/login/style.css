@@ -1,0 +1,144 @@
+.app {
+  width: 800px;
+  margin: 3% auto;
+  backdrop-filter: blur(100px);
+  border-radius: 15px 15px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 142, 10, 0.225) 0%,
+      rgba(255, 142, 10, 0.133647) 25%,
+      rgba(253, 254, 255, 0) 75%
+    ),
+    #ffffff;
+  color: black;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/*
+.contenedor {
+  height: 550px;
+  width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8%;
+  border: 1px solid grey;
+}
+
+p {
+  text-align: left;
+  margin: 0.5rem 0.5rem;
+}
+
+input {
+  background-color: bisque;
+  height: 30px;
+}
+
+.button {
+  background-color: dodgerblue;
+  width: 120px;
+  height: 30px;
+  margin-top: 25px;
+  color: white;
+  border: 1px solid #000;
+} */
+
+* {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.headerLogin {
+  display: flex;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 142, 10, 0.225) 0%,
+      rgba(255, 142, 10, 0.133647) 25%,
+      rgba(253, 254, 255, 0) 75%
+    ),
+    #ffffff;
+  margin: 0px;
+  padding: 35px;
+  backdrop-filter: blur(100px);
+  align-items: center;
+}
+
+.iniciarsesionML {
+  text-align: center;
+  width: 272px;
+  height: 24px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainLogin {
+  padding-top: 10vh;
+  height: 60vh;
+}
+
+.labelTitleML {
+  font-weight: 600;
+  text-align: left;
+  font-size: 16px;
+}
+
+.labelPassML {
+  margin-top: 3rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 16px;
+}
+
+.input-login {
+  margin-top: 1rem;
+  width: 300px;
+  height: 40px;
+  border: 2px solid whitesmoke;
+  border-radius: 0 15px;
+  text-indent: 10px;
+}
+
+.button {
+  margin-top: 6rem;
+  height: 40px;
+  width: 300px;
+  border: none;
+  border-radius: 0px 15px;
+  color: white;
+  background-color: orange;
+}
+
+.inactivebutton {
+  margin-top: 4rem;
+  height: 40px;
+  width: 300px;
+  border: none;
+  border-radius: 0px 15px;
+  color: white;
+}
+
+.olvido {
+  margin-top: 3rem;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  border-color: red;
+}

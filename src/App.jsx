@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import Logo from "./components/header/Logo";
 import Cuerpo from "./components/cuerpo/Cuerpo";
+import Boton from "./components/boton/Boton";
+import Login from "./components/login/Login";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,29 +11,36 @@ function App() {
   const [mostrarCodigo, setMostrarCodigo] = useState(false);
   const [cambiarFuente, setCambiarFuente] = useState(false);
 
-  const sumarContador = () => {
+  const sumarContador = (nombre) => {
     setCount(count + 1);
+    alert(`se toco el boton ${nombre}`);
   };
 
-  const actualizarCodigo = () => {
+  const actualizarCodigo = (nombre) => {
     setMostrarCodigo(!mostrarCodigo);
+    alert(`se toco el boton ${nombre}`);
   };
 
-  const actualizarFuente = () => {
+  const actualizarFuente = (nombre) => {
     setCambiarFuente(!cambiarFuente);
+    alert(`se toco el boton ${nombre}`);
   };
+
+  /*  const infoBoton = (nombre) => {
+    alert(`se toco el boton ${nombre}`);
+  }; */
 
   return (
     <>
-      <Logo
+      {/*  <Logo
         titulo="Bienvenido a React + Vite"
         subtitulo="Introduccion a React y Vite"
         cuerpo="lorem ipsum"
       />
       <div className="card">
-        <button onClick={() => sumarContador()}>Count is {count}</button>
-        <button onClick={() => actualizarCodigo()}>Mostrar codigo?</button>
-        <button onClick={() => actualizarFuente()}>Actualizar fuente</button>
+        <Boton label={`Count is ${count}`} funcion={sumarContador} />
+        <Boton label={`Mostrar codigo?`} funcion={actualizarCodigo} />
+        <Boton label={`Actualizar fuente`} funcion={actualizarFuente} />
 
         <Cuerpo
           cambiarFuente={cambiarFuente}
@@ -43,7 +52,8 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
+      <Login />
     </>
   );
 }
