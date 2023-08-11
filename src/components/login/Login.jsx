@@ -1,11 +1,13 @@
 /* import React from "react"; */
+
 import "./style.css";
 /* import { useForm } from "react-hook-form"; */
 /* import { iniciarSesion } from "../../api/Rule_auth"; */
-/* import { useNavigate } from "react-router-dom"; */
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
@@ -32,9 +34,9 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!errorEmail && !errorPassword) {
-      alert("El mail es: " + email + "y la contrasenia: " + password); //esto se manda a un servidor para corroborar las credenciales
+      navigate("/home", { replace: true });
     } else {
-      alert("La informacion ingresada es incorrecta");
+      alert("Las credenciales no son correctas"); //esto se manda a un servidor para corroborar las credenciales
     }
   };
 
@@ -69,6 +71,9 @@ function Login() {
             Iniciar Sesión
           </button>
         </form>
+        <Link to={"/home"}>
+          <button className={"button"}>Ir al inicio sin iniciar sesion</button>
+        </Link>
       </main>
     </div>
   );
