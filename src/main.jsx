@@ -13,7 +13,7 @@ import Logo from "./components/header/Logo";
 const router = createBrowserRouter([
   {
     path: "/home",
-    element: <Root />,
+    element: <Inicio />,
     errorElement: <ErrorPage />,
   },
   {

@@ -14,9 +14,10 @@
 }
 
 .contenedor {
+  width: 80%;
   background-image: radial-gradient(
     circle farthest-corner at 10% 20%,
     rgba(37, 145, 251, 0.98) 0.1%,
-    rgba(0, 7, 128, 1) 99.8%
+    rgb(123, 123, 123) 99.8%
   );
 }
