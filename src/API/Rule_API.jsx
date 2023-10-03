@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //creamos la conexion con el backend cada vez que se haga una request
-const API = axios.create({
+const api = axios.create({
   baseURL: "http://localhost:8000/api",
   headers: {
     "Content-Type": "application/json",
@@ -9,7 +9,7 @@ const API = axios.create({
 });
 
 //Funcion que intercepta las request
-/* API.interceptors.request.use(
+api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token && config.headers) {
@@ -20,6 +20,6 @@ const API = axios.create({
   (error) => {
     return Promise.reject(error);
   }
-); */
+);
 
-export default API;
+export default api;

@@ -1,8 +1,10 @@
-import API from "./Rule_API";
+import api from "./Rule_api";
+import { useNavigate } from "react-router-dom";
 
 export const registrarUsuario = async (user) => {
   let url = "/auth/register";
-  return await API.post(url, user)
+  return await api
+    .post(url, user)
     .then((resultado) => {
       return resultado.data;
     })
@@ -11,10 +13,27 @@ export const registrarUsuario = async (user) => {
     });
 };
 
+export const loginUsuario = async (user) => {
+  let url = "/auth/login";
+  return await api
+    .post(url, user)
+    .then((resultado) => {
+      localStorage.setItem("token", resultado.data.token);
+      return resultado.data;
+    })
+    .catch((error) => {
+      throw error.response.data.error || "Error procesando la solicitud";
+    });
+};
+
+export const logout = () => {
+  localStorage.removeItem("token");
+};
+
 //3)FRONT.        Necesita del back. Pero para plantear el maqueteado tampoco necesita de nadie. Disenio de interfaz.
 
 //ya esta planteado el axios. La conexion con el backend
-//1) Tienen que ver donde NECESITAN la conexion con el backend. En que componente.  Registro de usuario.
+//1) Tienen que ver donde NECESITAN la conexion con el backend. En que componente.  Inicio de usuario.
 //2) Creo un API/Rule_Necesidad. Y hago el endpoint
 //3) Uso el endpoint donde lo necesito.
 

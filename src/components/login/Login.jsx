@@ -5,6 +5,7 @@ import "./style.css";
 /* import { iniciarSesion } from "../../api/Rule_auth"; */
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { loginUsuario } from "../../api/Rule_auth";
 
 function Login() {
   const navigate = useNavigate();
@@ -31,10 +32,18 @@ function Login() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const user = { email: email, password: password };
     if (!errorEmail && !errorPassword) {
-      navigate("/home", { replace: true });
+      await loginUsuario(user)
+        .then((resultado) => {
+          alert(resultado.mensaje);
+          navigate("/home", { replace: true });
+        })
+        .catch((error) => {
+          alert(error);
+        });
     } else {
       alert("Las credenciales no son correctas"); //esto se manda a un servidor para corroborar las credenciales
     }
