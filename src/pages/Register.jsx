@@ -1,12 +1,13 @@
 /* import React from "react"; */
-
-import "./style.css";
 /* import { useForm } from "react-hook-form"; */
 /* import { iniciarSesion } from "../../api/Rule_auth"; */
+import "../components/login/style.css";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { registrarUsuario } from "../api/Rule_auth";
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,10 +32,18 @@ function Login() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!errorEmail && !errorPassword) {
-      navigate("/home", { replace: true });
+      await registrarUsuario({ email: email, password: password })
+        .then((resultado) => {
+          alert(resultado.mensaje);
+          navigate("/", { replace: true });
+        })
+        .catch((error) => {
+          alert(error);
+        });
     } else {
       alert("Las credenciales no son correctas"); //esto se manda a un servidor para corroborar las credenciales
     }
@@ -43,6 +52,7 @@ function Login() {
   return (
     <div className="app">
       <main className="mainLogin">
+        <h1>REGISTRO</h1>
         <form className="form" onSubmit={handleSubmit}>
           <p className="labelTitleML">E-mail:</p>
           <input
@@ -68,15 +78,15 @@ function Login() {
             </p>
           )}
           <button type="submit" className={"button"}>
-            Iniciar Sesión
+            Registrarme
           </button>
         </form>
-        <Link to={"/register"}>
-          <button className={"button"}>Registrarme</button>
+        <Link to={"../"}>
+          <button className={"button"}>Volver al inicio de sesion</button>
         </Link>
       </main>
     </div>
   );
 }
 
-export default Login;
+export default Register;

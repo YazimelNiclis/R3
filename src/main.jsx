@@ -10,6 +10,7 @@ import Root from "./pages/root.jsx";
 import Contact from "./pages/contact";
 import App from "./App";
 import Logo from "./components/header/Logo";
+import Register from "./pages/Register";
 const router = createBrowserRouter([
   {
     path: "/home",
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
     errorElement: <ErrorPage />,
   },
 ]);

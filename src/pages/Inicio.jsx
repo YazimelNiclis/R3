@@ -41,9 +41,6 @@ function Inicio() {
       })
       .catch((error) => {
         setError("Error del lado del servidor");
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   }, []);
 
